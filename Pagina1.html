@@ -23,6 +23,7 @@
   <nav class="navbar">
     <div class="container-fluid">
       <span class="container">Chacao Pizza </span>
+      
     </div>
   </nav>
   <br>
@@ -58,7 +59,7 @@
       </div>
       <div class="carousel-item">
         <a href="Pagina4.html">
-          <img src="imag/Carnes.jpg" class="d-block w-100" alt="Oferta3" height="400" style="border: 10px solid black;">
+          <img src="imag/Carne vacuno 3.jpg" class="d-block w-100" alt="Oferta3" height="400" style="border: 10px solid black;">
         </a>
         <div class="carousel-caption d-none d-md-block">
           <h5>Oferta de Carnes</h5>
@@ -112,7 +113,7 @@
     </div>
     <div class="col">
       <div class="card">
-        <img src="imag/Carnes.jpg" class="card-img-top" alt="Carnes" width="150" height="150">
+        <img src="imag/Carne vacuno 3.jpg" class="card-img-top" alt="Carnes" width="150" height="150">
         <div class="card-body">
           <h5 class="card-title">Carnes</h5>
           <p class="card-text"> Sumérgete en el mundo de la carne de calidad, desde tiernos cortes de res hasta jugosas
@@ -135,6 +136,43 @@
       </div>
     </div>
   </div>
+
+
+  <button class="boton-registrarse" onclick="mostrarFormulario()">registrarse</button>
+
+
+
+  <div id="formulario" style="display: none;">
+    <h2>registarse</h2>
+    <form action="procesar_formulario.php" method="post">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+        <br>
+        <label for="email">correo:</label>
+        <input type="email" id="email" name="email" required>
+        <br>
+        <label for="edad">contraseña:</label>
+        <input type="edad" id="edad" name="edad" required>
+        
+        <input type="submit" value="Enviar">
+    </form>
+</div>
+
+
+
+
+
+
+<script>
+    function mostrarFormulario() {
+        document.getElementById("formulario").style.display = "block";
+    }
+</script>  
+
+
+
+<br>
+
 
   <a href="#openModal">contacto</a>
 
