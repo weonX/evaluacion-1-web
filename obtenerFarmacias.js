@@ -12,28 +12,26 @@ function obtenerFarmacias() {
 
 function mostrarFarmacias(farmacias) {
   const farmaciasCarousel = document.getElementById('farmaciasCarousel');
-  const farmaciasList = document.createElement('ul');
+  const farmaciasList = document.createElement('div');
   farmaciasList.classList.add('farmacias-list');
 
   farmacias.forEach(farmacia => {
-    const itemFarmacia = document.createElement('li');
-    itemFarmacia.textContent = `${farmacia.local_nombre} - ${farmacia.local_direccion}`;
-    farmaciasList.appendChild(itemFarmacia);
+    const farmaciasItem = document.createElement('div');
+    farmaciasItem.classList.add('farmacias-item');
+    farmaciasItem.innerHTML = `<h3>${farmacia.local_nombre}</h3>
+                               <p>${farmacia.local_direccion}</p>`;
+    farmaciasList.appendChild(farmaciasItem);
   });
 
   farmaciasCarousel.appendChild(farmaciasList);
 
   // Configurar el carrusel
-  const farmaciasItems = farmaciasCarousel.querySelectorAll('.farmacias-list > li');
-  const numItems = farmaciasItems.length;
-  const itemWidth = farmaciasItems[0].offsetWidth;
-  const carouselWidth = numItems * itemWidth;
-
-  farmaciasList.style.width = `${carouselWidth}px`;
-
+  const numItems = farmacias.length;
+  const itemWidth = farmaciasList.firstElementChild.offsetWidth;
+  farmaciasList.style.width = `${numItems * itemWidth}px`;
   let currentIndex = 0;
+
   setInterval(() => {
-    farmaciasList.style.transition = 'transform 0.5s ease-in-out';
     currentIndex = (currentIndex + 1) % numItems;
     farmaciasList.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
   }, 3000); // Cambia de farmacia cada 3 segundos

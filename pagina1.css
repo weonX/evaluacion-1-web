@@ -132,29 +132,41 @@ img {
 }
 
 
-/* Estilos del carrusel */
+/* Estilos del carrusel de farmacias */
+
 .farmacias-carousel {
-    width: 520px; /* Ancho ajustable según tus necesidades */
+    width: 80%; /* Ancho ajustable según tus necesidades */
     margin: auto;
     overflow: hidden;
-}
-
-.farmacias-carousel ul {
+    border: 2px solid #1E88E5; /* Borde azul */
+    border-radius: 10px; /* Bordes redondeados */
+    background-color: #E3F2FD; /* Fondo azul claro */
+  }
+  
+  .farmacias-list {
     display: flex;
     padding: 0;
     margin: 0;
     list-style-type: none;
     transition: transform 0.5s ease-in-out;
-}
-
-.farmacias-carousel li {
+  }
+  
+  .farmacias-item {
     flex: 0 0 auto;
     margin-right: 20px;
-    background-color: #f2f2f2;
-    border-radius: 5px;
-    padding: 10px;
-    min-width: 500px; /* Ancho ajustable según tus necesidades */
-    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
-    overflow: hidden; /* Oculta el texto que se desborde */
-    text-overflow: ellipsis; /* Agrega puntos suspensivos (...) al final del texto que se desborde */
-}
+    background-color: #fff; /* Fondo blanco */
+    border: 2px solid #1E88E5; /* Borde azul */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 20px;
+    min-width: 300px; /* Ancho ajustable según tus necesidades */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  }
+  
+  .farmacias-item h3 {
+    margin-bottom: 10px;
+    color: #1E88E5; /* Texto azul */
+  }
+  
+  .farmacias-item p {
+    margin: 0;
+  }
