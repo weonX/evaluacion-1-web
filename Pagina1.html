@@ -14,26 +14,39 @@
 </head>
 
 <body>
-  <nav class="navbar">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <span class="container">BAJONEAR</span>
-      <div id="formulario-registro" style="display: none;">
-        <h2>Registrarse</h2>
-        <form action="procesar_formulario.php" method="post">
-          <label for="nombre">Nombre:</label>
-          <input type="text" id="nombre" name="nombre" required>
-          <br>
-          <label for="email">Correo:</label>
-          <input type="email" id="email" name="email" required>
-          <br>
-          <label for="contraseña">Contraseña:</label>
-          <input type="password" id="contraseña" name="contraseña" required>
-          <br>
-          <input type="submit" value="Enviar">
-          <br>
-          <button onclick="cerrarFormularioRegistro()">Cerrar</button>
-        </form>
+      <a class="navbar-brand" href="#">BAJONEA</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Verduras</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Frutas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Carnes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Lácteos</a>
+          </li>
+        </ul>
+        <div class="d-flex">
+          <button class="btn btn-outline-primary me-2" onclick="mostrarFormularioRegistro()">Registrarse</button>
+          <button class="btn btn-outline-primary" onclick="mostrarFormularioLogin()">Login</button>
+        </div>
       </div>
+    </div>
+  </nav>
+
       <div id="formulario-login" style="display: none;">
         <h2>Iniciar Sesión</h2>
         <form action="procesar_login.php" method="post">
