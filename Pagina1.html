@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="pagina1.css">
   <title>BAJONEAR</title>
 </head>
-<h1> prueba</h1>
+
 <body>
   <nav class="navbar">
     <div class="container-fluid">
@@ -199,6 +199,9 @@
       <p>oficina 777 providencia, santiago Chile.</p>
     </div>
   </div>
+  <br>
+
+ 
   <div id="formulario" style="display: none;">
     <h2>registarse</h2>
     <form action="procesar_formulario.php" method="post">
@@ -241,6 +244,50 @@
   <div class="a1">
     <a href="#openModal" type="button" class="btn btn-primary">Contacto</a>
   </div>
+  <br>
+
+  
+
+  <!-- JavaScript para obtener y mostrar las farmacias -->
+  <script>
+    // Función para obtener y mostrar la información de las farmacias
+    function obtenerFarmacias() {
+      // Hacer la solicitud HTTP a la API
+      fetch('https://midas.minsal.cl/farmacia_v2/WS/getLocales.php')
+        .then(response => response.json()) // Convertir la respuesta a JSON
+        .then(data => {
+          // Manejar los datos recibidos
+          mostrarFarmacias(data.locales);
+        })
+        .catch(error => console.error('Error al obtener las farmacias:', error));
+    }
+
+    // Función para mostrar las farmacias en el contenedor
+    function mostrarFarmacias(farmacias) {
+      // Obtener el contenedor donde se mostrarán las farmacias
+      const contenedorFarmacias = document.getElementById('farmacias');
+
+      // Crear un elemento para cada farmacia y agregarlo al contenedor
+      farmacias.forEach(farmacia => {
+        const farmaciaElemento = document.createElement('div');
+        farmaciaElemento.innerHTML = `
+          <h3>${farmacia.local_nombre}</h3>
+          <p>Dirección: ${farmacia.local_direccion}</p>
+          <p>Teléfono: ${farmacia.local_telefono}</p>
+          <hr>
+        `;
+        contenedorFarmacias.appendChild(farmaciaElemento);
+      });
+    }
+
+    // Llamar a la función para obtener y mostrar las farmacias cuando la página cargue
+    window.onload = function() {
+      obtenerFarmacias();
+    };
+  </script>
+
+
+
 </body>
 <script>
   function mostrarFormularioRegistro() {
