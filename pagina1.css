@@ -134,24 +134,27 @@ img {
 
 /* Estilos del carrusel */
 .farmacias-carousel {
-    width: 300px;
+    width: 520px; /* Ancho ajustable según tus necesidades */
     margin: auto;
     overflow: hidden;
-  }
-  
-  .farmacias-carousel ul {
+}
+
+.farmacias-carousel ul {
     display: flex;
     padding: 0;
     margin: 0;
     list-style-type: none;
     transition: transform 0.5s ease-in-out;
-  }
-  
-  .farmacias-carousel li {
+}
+
+.farmacias-carousel li {
     flex: 0 0 auto;
-    margin-right: 10px;
+    margin-right: 20px;
     background-color: #f2f2f2;
     border-radius: 5px;
     padding: 10px;
-    min-width: 200px;
-  }
+    min-width: 500px; /* Ancho ajustable según tus necesidades */
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+    overflow: hidden; /* Oculta el texto que se desborde */
+    text-overflow: ellipsis; /* Agrega puntos suspensivos (...) al final del texto que se desborde */
+}
