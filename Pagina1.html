@@ -9,7 +9,7 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
   <link rel="stylesheet" href="pagina1.css">
-  <title>BAJONEAR</title>
+  <title>BAJONEA</title>
   
 </head>
 
@@ -27,16 +27,16 @@
             <a class="nav-link active" aria-current="page" href="#">Inicio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Verduras</a>
+            <a class="nav-link" href="Pagina2.html">Verduras</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Frutas</a>
+            <a class="nav-link" href="Pagina3.html">Frutas</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Carnes</a>
+            <a class="nav-link" href="Pagina4.html">Carnes</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Lácteos</a>
+            <a class="nav-link" href="Pagina5.html">Lácteos</a>
           </li>
         </ul>
         <div class="d-flex">
@@ -47,41 +47,63 @@
     </div>
   </nav>
 
-      <div id="formulario-login" style="display: none;">
-        <h2>Iniciar Sesión</h2>
-        <form action="procesar_login.php" method="post">
-          <label for="correo">Correo:</label>
-          <input type="email" id="correo" name="correo" required>
-          <br>
-          <label for="contraseña">Contraseña:</label>
-          <input type="password" id="contraseña" name="contraseña" required>
-          <br>
-          <input type="submit" value="Iniciar Sesión">
-          <br>
-          <button onclick="cerrarFormularioLogin()">Cerrar</button>
-        </form>
+   <!-- Formularios de Registro y Login -->
+   <div id="formulario-registro" style="display: none;">
+    <h2>Registrarse</h2>
+    <form action="procesar_formulario.php" method="post" onsubmit="return validarRegistro()">
+      <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" class="form-control" required>
       </div>
-    </div>
-  </nav>
-  <button class="boton-registrarse" onclick="mostrarFormularioRegistro()">Registrarse</button>
-  <button class="boton-login" onclick="mostrarFormularioLogin()">Login</button>
-  <br>
+      <div class="mb-3">
+        <label for="email" class="form-label">Correo:</label>
+        <input type="email" id="email" name="email" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label for="telefono" class="form-label">Teléfono:</label>
+        <input type="text" id="telefono" name="telefono" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label for="contraseña" class="form-label">Contraseña:</label>
+        <input type="password" id="contraseña" name="contraseña" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label for="confirmar_contraseña" class="form-label">Confirmar Contraseña:</label>
+        <input type="password" id="confirmar_contraseña" name="confirmar_contraseña" class="form-control" required>
+      </div>
+      <input type="submit" value="Enviar" class="btn btn-primary">
+      <button type="button" class="btn btn-secondary" onclick="cerrarFormularioRegistro()">Cerrar</button>
+    </form>
+  </div>
+
+  <div id="formulario-login" style="display: none;">
+    <h2>Iniciar Sesión</h2>
+    <form action="procesar_login.php" method="post" onsubmit="return validarLogin()">
+      <div class="mb-3">
+        <label for="correo" class="form-label">Correo:</label>
+        <input type="email" id="correo" name="correo" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label for="contraseña_login" class="form-label">Contraseña:</label>
+        <input type="password" id="contraseña_login" name="contraseña_login" class="form-control" required>
+      </div>
+      <input type="submit" value="Iniciar Sesión" class="btn btn-primary">
+      <button type="button" class="btn btn-secondary" onclick="cerrarFormularioLogin()">Cerrar</button>
+    </form>
+  </div>
+</div>
+  <!-- Carrusel -->
   <div id="carouselExampleCaptions" class="carousel slide">
     <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
-        aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-        aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-        aria-label="Slide 3"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3"
-        aria-label="Slide 4"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
         <a href="Pagina2.html">
-          <img src="imag/cebolla.jpg  " class="d-block w-100" alt="Oferta1" height="400"
-            style="border: 10px solid black;">
+          <img src="imag/cebolla.jpg" class="d-block w-100" alt="Oferta1" height="400" style="border: 10px solid black;">
         </a>
         <div class="carousel-caption d-none d-md-block">
           <h5>Las mejores Cebollas a mejor precios</h5>
@@ -99,8 +121,7 @@
       </div>
       <div class="carousel-item">
         <a href="Pagina4.html">
-          <img src="imag/carnes.jpg" class="d-block w-100" alt="Oferta3" height="400"
-            style="border: 10px solid black;">
+          <img src="imag/carnes.jpg" class="d-block w-100" alt="Oferta3" height="400" style="border: 10px solid black;">
         </a>
         <div class="carousel-caption d-none d-md-block">
           <h5>Las mejores Carnes a mejores precios</h5>
@@ -109,12 +130,11 @@
       </div>
       <div class="carousel-item">
         <a href="Pagina5.html">
-          <img src="imag/leche.jpg" class="d-block w-100" alt="Oferta4" height="400"
-            style="border: 10px solid black;">
+          <img src="imag/leche.jpg" class="d-block w-100" alt="Oferta4" height="400" style="border: 10px solid black;">
         </a>
         <div class="carousel-caption d-none d-md-block">
-          <h5>Las mejores Carnes a mejores Leches</h5>
-          <p>¡Descuento exclusivo en leche fresca! ¡Ahorra un 15% en todas las variedades de leche en nuestra tienda! ¡Nutrición de calidad al mejor precio! Ven y aprovecha esta oferta ahora.</p>
+          <h5>Las mejores Leches a mejor precios</h5>
+          <p>¡Promoción exclusiva en leche fresca! ¡Lleva la mejor leche a tu mesa con un 15% de descuento! ¡No dejes pasar esta oportunidad! Visítanos y aprovecha.</p>
         </div>
       </div>
     </div>
@@ -127,16 +147,15 @@
       <span class="visually-hidden">Next</span>
     </button>
   </div>
-  <br>
-  <div class="row row-cols-1 row-cols-md-2 g-4">
+
+  <!-- Tarjetas de Productos -->
+  <div class="row row-cols-1 row-cols-md-3 g-4">
     <div class="col">
       <div class="card">
-        <img src="imag/Verduras.jpg" class="card-img-top" alt="Verduras" width="150" height="150">
+        <img src="imag/verdura.jpg" class="card-img-top" alt="Verduras" width="150" height="150">
         <div class="card-body">
           <h5 class="card-title">Verduras</h5>
-          <p class="card-text">Descubre la frescura y la variedad en nuestro catálogo de verduras, desde crujientes
-            zanahorias hasta hojas verdes llenas de vitalidad. Encuentra precios competitivos en una selección de
-            verduras frescas que harán tus platos más saludables y deliciosos.</p>
+          <p class="card-text">Descubre la frescura y calidad de nuestras verduras en oferta. Lleva a tu mesa lo mejor de la naturaleza y disfruta de una alimentación saludable y deliciosa con precios que no te puedes perder.</p>
           <a href="Pagina2.html" type="button" class="btn btn-primary">Ir a ver</a>
         </div>
       </div>
@@ -146,21 +165,17 @@
         <img src="imag/Frutas.jpg" class="card-img-top" alt="Frutas" width="150" height="150">
         <div class="card-body">
           <h5 class="card-title">Frutas</h5>
-          <p class="card-text">Explora una amplia variedad de frutas frescas y jugosas de temporada, desde manzanas
-            crujientes hasta exóticas piñas tropicales. Encuentra las mejores ofertas en frutas de calidad y disfruta de
-            su sabor natural y nutritivo en cada bocado de estas deliciosas frutas.</p>
+          <p class="card-text">Explora una explosión de sabores y colores en nuestra sección de frutas. Desde jugosas manzanas hasta exóticas frutas tropicales, encuentra las mejores ofertas y lleva a casa la frescura y el sabor en cada bocado.</p>
           <a href="Pagina3.html" type="button" class="btn btn-primary">Ir a ver</a>
         </div>
       </div>
     </div>
     <div class="col">
       <div class="card">
-        <img src="imag/Carne vacuno 3.jpg" class="card-img-top" alt="Carnes" width="150" height="150">
+        <img src="imag/Carnes.jpg" class="card-img-top" alt="Carnes" width="150" height="150">
         <div class="card-body">
           <h5 class="card-title">Carnes</h5>
-          <p class="card-text"> Sumérgete en el mundo de la carne de calidad, desde tiernos cortes de res hasta jugosas
-            piezas de pollo. Encuentra las ofertas más tentadoras en una variedad de carnes frescas y preparadas para
-            satisfacer todos tus antojos culinarios y elevar tus comidas a otro nivel.</p>
+          <p class="card-text">Encuentra las ofertas más tentadoras en una variedad de carnes frescas y preparadas para satisfacer todos tus antojos culinarios y elevar tus comidas a otro nivel.</p>
           <a href="Pagina4.html" type="button" class="btn btn-primary">Ir a ver</a>
         </div>
       </div>
@@ -170,117 +185,127 @@
         <img src="imag/Lacteos.jpg" class="card-img-top" alt="Lacteos" width="150" height="150">
         <div class="card-body">
           <h5 class="card-title">Lácteos</h5>
-          <p class="card-text">Explora nuestra selección de lácteos frescos y deliciosos, desde cremosa leche hasta
-            quesos artesanales. Encuentra los mejores precios en una variedad de productos lácteos que te ayudarán a
-            crear platos deliciosos y nutritivos para toda la familia.</p>
+          <p class="card-text">Explora nuestra selección de lácteos frescos y deliciosos, desde cremosa leche hasta quesos artesanales. Encuentra los mejores precios en una variedad de productos lácteos que te ayudarán a crear platos deliciosos y nutritivos para toda la familia.</p>
           <a href="Pagina5.html" type="button" class="btn btn-primary">Ir a ver</a>
         </div>
       </div>
     </div>
   </div>
-  <div id="formulario" style="display: none;">
-    <h2>registarse</h2>
-    <form action="procesar_formulario.php" method="post">
-      <label for="nombre">Nombre:</label>
-      <input type="text" id="nombre" name="nombre" required>
-      <br>
-      <label for="email">correo:</label>
-      <input type="email" id="email" name="email" required>
-      <br>
-      <label for="edad">contraseña:</label>
-      <input type="edad" id="edad" name="edad" required>
-
-      <input type="submit" value="Enviar">
-      <br>
-      <button onclick="cerrarFormulario()">Cerrar</button>
-    </form>
-  </div>
-  <script>
-    function mostrarFormulario() {
-      document.getElementById("formulario").style.display = "block";
-    }
-  </script>
-  <script>
-    function cerrarFormulario() {
-      document.getElementById("formulario").style.display = "none";
-    }
-  </script>
-  <br>
+  <!-- Modal de Contacto -->
   <div id="openModal" class="modalDialog">
     <div>
       <a href="#close" title="Close" class="close">X</a>
       <h2>Nos ubicamos</h2>
       <p>Calle siempre viva.</p>
-      <p>oficina 777 providencia, santiago Chile.</p>
-    </div>
-  </div>
-  <br>
-
- 
-  <div id="formulario" style="display: none;">
-    <h2>registarse</h2>
-    <form action="procesar_formulario.php" method="post">
-      <label for="nombre">Nombre:</label>
-      <input type="text" id="nombre" name="nombre" required>
-      <br>
-      <label for="email">correo:</label>
-      <input type="email" id="email" name="email" required>
-      <br>
-      <label for="edad">contraseña:</label>
-      <input type="edad" id="edad" name="edad" required>
-      <input type="submit" value="Enviar">
-      <br>
-      <button onclick="cerrarFormulario()">Cerrar</button>
-    </form>
-  </div>
-  <script>
-    function mostrarFormulario() {
-      document.getElementById("formulario").style.display = "block";
-    }
-  </script>
-  <script>
-    function cerrarFormulario() {
-      document.getElementById("formulario").style.display = "none";
-    }
-  </script>
-  <br>
-  <div id="openModal" class="modalDialog">
-    <div>
-      <a href="#close" title="Close" class="close">X</a>
-      <h2>Nos ubicamos</h2>
-      <p>Calle siempre viva.</p>
-      <p>oficina 777 providencia, santiago Chile.</p>
+      <p>Oficina 777, Providencia, Santiago, Chile.</p>
     </div>
   </div>
   <footer>
     <hr>
     <p style="text-align: center;">© 2024 Todos los derechos reservados.</p>
   </footer>
-  <div class="a1">
+  <div class="text-center">
     <a href="#openModal" type="button" class="btn btn-primary">Contacto</a>
   </div>
 
-  
-<H1>FARMACIAS</H1>
-<div class="farmacias-carousel" id="farmaciasCarousel"></div>
-<script src="obtenerFarmacias.js"></script>
+  <!-- Sección de Farmacias -->
+  <h1>FARMACIAS</h1>
+  <div class="farmacias-carousel" id="farmaciasCarousel"></div>
+  <script src="obtenerFarmacias.js"></script>
 
-</body>
+  <!-- Scripts para Formularios -->
+  <script>
+   function mostrarFormularioRegistro() {
+  document.getElementById("formulario-registro").style.display = "block";
+}
 
+function cerrarFormularioRegistro() {
+  document.getElementById("formulario-registro").style.display = "none";
+}
 
-<script>
-  function mostrarFormularioRegistro() {
-    document.getElementById("formulario-registro").style.display = "block";
+function mostrarFormularioLogin() {
+  document.getElementById("formulario-login").style.display = "block";
+}
+
+function cerrarFormularioLogin() {
+  document.getElementById("formulario-login").style.display = "none";
+}
+
+function validarRegistro() {
+  var nombre = document.getElementById("nombre").value;
+  var email = document.getElementById("email").value;
+  var telefono = document.getElementById("telefono").value;
+  var contraseña = document.getElementById("contraseña").value;
+  var confirmar_contraseña = document.getElementById("confirmar_contraseña").value;
+
+  // Verificar que todos los campos estén llenos
+  if (nombre === "" || email === "" || telefono === "" || contraseña === "" || confirmar_contraseña === "") {
+    alert("Por favor, llene todos los campos.");
+    return false;
   }
-  function cerrarFormularioRegistro() {
-    document.getElementById("formulario-registro").style.display = "none";
+
+  // Validar que el teléfono solo contenga números y tenga una longitud mínima de 10 dígitos
+  var telefonoRegex = /^[0-9]{10,}$/;
+  if (!telefonoRegex.test(telefono)) {
+    alert("El teléfono debe contener solo números y tener al menos 10 dígitos.");
+    return false;
   }
-  function mostrarFormularioLogin() {
-    document.getElementById("formulario-login").style.display = "block";
+
+  // Validar que las contraseñas tengan una longitud mínima de 8 caracteres y contengan al menos un número
+  var contraseñaRegex = /^(?=.*[0-9]).{8,}$/;
+  if (!contraseñaRegex.test(contraseña)) {
+    alert("La contraseña debe tener al menos 8 caracteres y contener al menos un número.");
+    return false;
   }
-  function cerrarFormularioLogin() {
-    document.getElementById("formulario-login").style.display = "none";
+
+  // Validar que las contraseñas coincidan
+  if (contraseña !== confirmar_contraseña) {
+    alert("Las contraseñas no coinciden.");
+    return false;
   }
+
+  // Validar que el nombre solo contenga letras y espacios
+  var nombreRegex = /^[A-Za-z\s]+$/;
+  if (!nombreRegex.test(nombre)) {
+    alert("El nombre solo debe contener letras y espacios.");
+    return false;
+  }
+
+  // Si todas las validaciones pasan, se mostrará el mensaje de "Usuario registrado"
+  alert("Usuario registrado");
+  return true;
+}
+
+function validarLogin() {
+  var correo = document.getElementById("correo").value;
+  var contraseña_login = document.getElementById("contraseña_login").value;
+
+  // Verificar que ambos campos estén llenos
+  if (correo === "" || contraseña_login === "") {
+    alert("Por favor, llene todos los campos.");
+    return false;
+  }
+
+  // Validar que el correo tenga un formato válido
+  var correoRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!correoRegex.test(correo)) {
+    alert("Por favor, ingrese un correo válido.");
+    return false;
+  }
+
+  // Validar que la contraseña en el formulario de inicio de sesión tenga una longitud mínima de 8 caracteres
+  if (contraseña_login.length < 8) {
+    alert("La contraseña debe tener al menos 8 caracteres.");
+    return false;
+  }
+
+  // Si todas las validaciones pasan, se mostrará el mensaje de "Acceso concedido"
+  alert("Acceso concedido");
+  return true;
+}
+
 </script>
 
+
+</body>
 </html>
