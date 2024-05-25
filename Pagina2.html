@@ -12,28 +12,31 @@
 </head>
 
 <body>
+  <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="pagina1.html">BAJONEA</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <!-- Agrega una clase "blink" al navbar-brand -->
+      <a class="navbar-brand blink" href="#">BAJONEA</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="pagina1.html">Inicio</a>
+            <a class="nav-link active" aria-current="page" href="#">Inicio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="pagina2.html">Verduras</a>
+            <a class="nav-link" href="Pagina2.html">Verduras</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="pagina3.html">Frutas</a>
+            <a class="nav-link" href="Pagina3.html">Frutas</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="pagina4.html">Carnes</a>
+            <a class="nav-link" href="Pagina4.html">Carnes</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="pagina5.html">Lácteos</a>
+            <a class="nav-link" href="Pagina5.html">Lácteos</a>
           </li>
         </ul>
         <div class="d-flex">
@@ -43,40 +46,67 @@
       </div>
     </div>
   </nav>
-  <!-- Formularios de Registro y Login -->
-  <div id="formulario-registro" style="display: none;">
-    <h2>Registrarse</h2>
-    <form action="procesar_formulario.php" method="post">
-      <label for="nombre">Nombre:</label>
-      <input type="text" id="nombre" name="nombre" required>
-      <br>
-      <label for="email">Correo:</label>
-      <input type="email" id="email" name="email" required>
-      <br>
-      <label for="contraseña">Contraseña:</label>
-      <input type="password" id="contraseña" name="contraseña" required>
-      <br>
-      <input type="submit" value="Enviar">
-      <br>
-      <button type="button" onclick="cerrarFormularioRegistro()">Cerrar</button>
-    </form>
-  </div>
 
-  <div id="formulario-login" style="display: none;">
-    <h2>Iniciar Sesión</h2>
-    <form action="procesar_login.php" method="post">
-      <label for="correo">Correo:</label>
-      <input type="email" id="correo" name="correo" required>
-      <br>
-      <label for="contraseña">Contraseña:</label>
-      <input type="password" id="contraseña" name="contraseña" required>
-      <br>
-      <input type="submit" value="Iniciar Sesión">
-      <br>
-      <button type="button" onclick="cerrarFormularioLogin()">Cerrar</button>
-    </form>
+  <script>
+    // Agrega una clase de parpadeo al navbar-brand
+    $(document).ready(function() {
+      setInterval(function() {
+        $('.blink').toggleClass('blinking');
+      }, 1000); // Cambia el intervalo de tiempo si deseas un parpadeo más rápido o lento
+    });
+    </script>
+
+   <!-- Formularios de Registro y Login -->
+   <div class="container">
+
+  
+    <!-- Formularios de Registro y Login -->
+    <div id="formulario-registro" style="display: none;">
+      <h2>Registrarse</h2>
+      <form action="Pagina6.html" method="post" onsubmit="return validarRegistro()">
+        <div class="mb-3">
+          <label for="nombre" class="form-label">Nombre:</label>
+          <input type="text" id="nombre" name="nombre" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Correo:</label>
+          <input type="email" id="email" name="email" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="telefono" class="form-label">Teléfono:</label>
+          <input type="text" id="telefono" name="telefono" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="contraseña" class="form-label">Contraseña:</label>
+          <input type="password" id="contraseña" name="contraseña" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="confirmar_contraseña" class="form-label">Confirmar Contraseña:</label>
+          <input type="password" id="confirmar_contraseña" name="confirmar_contraseña" class="form-control" required>
+        </div>
+        <input type="submit" value="Enviar" class="btn btn-primary">
+        <button type="button" class="btn btn-secondary" onclick="cerrarFormularioRegistro()">Cerrar</button>
+      </form>
+    </div>
+  
+    <div id="formulario-login" style="display: none;">
+      <h2>Iniciar Sesión</h2>
+      <form action="Pagina6.html" method="post" onsubmit="return validarLogin()">
+        <div class="mb-3">
+          <label for="correo" class="form-label">Correo:</label>
+          <input type="email" id="correo" name="correo" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="contraseña_login" class="form-label">Contraseña:</label>
+          <input type="password" id="contraseña_login" name="contraseña_login" class="form-control" required>
+        </div>
+        <input type="submit" value="Iniciar Sesión" class="btn btn-primary">
+        <button type="button" class="btn btn-secondary" onclick="cerrarFormularioLogin()">Cerrar</button>
+      </form>
+    </div>
   </div>
-  <div id="carouselExampleCaptions" class="carousel slide">
+   <!-- Carrusel -->
+   <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -85,35 +115,39 @@
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <a href="https://www.supertrebol.cl">
-          <img src="imag/logo el trebol.jpg" class="d-block w-100" alt="Oferta1" height="400"
-            style="border: 10px solid black;">
+        <a href="Pagina2.html">
+          <img src="imag/cebolla.jpg" class="d-block w-100" alt="Oferta1" height="400" style="border: 10px solid black;">
         </a>
         <div class="carousel-caption d-none d-md-block">
+          <h5>Las mejores Cebollas a mejor precios</h5>
+          <p>¡Cebollas frescas con un 20% de descuento! ¡Solo por tiempo limitado! Visítanos ahora.</p>
         </div>
       </div>
       <div class="carousel-item">
-        <a href="https://www.lider.cl">
-          <img src="imag/logo lider.jpg" class="d-block w-100" alt="Oferta2" height="400"
-            style="border: 10px solid black;">
+        <a href="Pagina3.html">
+          <img src="imag/Platano.pnj.jpg" class="d-block w-100" alt="Oferta2" height="400" style="border: 10px solid black;">
         </a>
         <div class="carousel-caption d-none d-md-block">
+          <h5>Las mejores Platanos a mejor precios</h5>
+          <p>¡Descuento especial en plátanos frescos! ¡Ahorra un 30% en todos nuestros plátanos! ¡No te pierdas esta oferta limitada! Visítanos hoy mismo.</p>
         </div>
       </div>
       <div class="carousel-item">
-        <a href="https://www.santaisabel.cl">
-          <img src="imag/logo santa isabel.jpg" class="d-block w-100" alt="Oferta3" height="400"
-            style="border: 10px solid black;">
+        <a href="Pagina4.html">
+          <img src="imag/carnes.jpg" class="d-block w-100" alt="Oferta3" height="400" style="border: 10px solid black;">
         </a>
         <div class="carousel-caption d-none d-md-block">
+          <h5>Las mejores Carnes a mejores precios</h5>
+          <p>¡Oferta imperdible en carne fresca! ¡Ahorra un 25% en todos los cortes de carne en nuestra tienda! ¡Calidad y sabor al mejor precio! Visítanos ya.</p>
         </div>
       </div>
       <div class="carousel-item">
-        <a href="https://tottus.falabella.com/tottus-cl">
-          <img src="imag/Logo_Tottus.jpg" class="d-block w-100" alt="Oferta4" height="400"
-            style="border: 10px solid black;">
+        <a href="Pagina5.html">
+          <img src="imag/leche.jpg" class="d-block w-100" alt="Oferta4" height="400" style="border: 10px solid black;">
         </a>
         <div class="carousel-caption d-none d-md-block">
+          <h5>Las mejores Leches a mejor precios</h5>
+          <p>¡Promoción exclusiva en leche fresca! ¡Lleva la mejor leche a tu mesa con un 15% de descuento! ¡No dejes pasar esta oportunidad! Visítanos y aprovecha.</p>
         </div>
       </div>
     </div>
@@ -126,6 +160,17 @@
       <span class="visually-hidden">Next</span>
     </button>
   </div>
+
+
+  <script>
+  // Activar el deslizamiento automático cada 3 segundos
+  document.addEventListener('DOMContentLoaded', function () {
+    var myCarousel = document.querySelector('#carouselExampleCaptions');
+    var carousel = new bootstrap.Carousel(myCarousel, {
+      interval: 3000, // Intervalo de cambio en milisegundos (3segundos)
+    });
+    });
+    </script>
 
   <br>
   <h1>VERDURAS</h1>
@@ -164,41 +209,179 @@
     </li>
   </ul>
   <br>
-  <div id="openModal" class="modalDialog">
-    <div>
-      <a href="#close" title="Close" class="close">X</a>
-      <h2>Nos ubicamos</h2>
-      <p>Calle siempre viva.</p>
-      <p>oficina 777 providencia, santiago Chile.</p>
-    </div>
-  </div>
-  <footer>
-    <hr>
-    <p style="text-align: center;">© 2024 Todos los derechos reservados.</p>
-  </footer>
-  <div class="a1">
-    <a href="#openModal" type="button" class="btn btn-primary">contacto</a>
-  </div>
+
+
+ 
+
+  
+
+
+  
+
+  <p id="bajonea"> siempre te cuidamos, por eso: <br>
+    te mostramos las farmacias de turno de todo Chile 
+
+    <script>
+      $(document).ready(function() {
+        // Función para animar el párrafo al hacer clic en él
+        $('#bajonea').click(function() {
+          $(this).animate({ fontSize: '24px', opacity: '0.5' }, 'slow');
+        });
+      });
+    </script>
+  
 
   <!-- Sección de Farmacias -->
-  <h1>FARMACIAS</h1>
   <div class="farmacias-carousel" id="farmaciasCarousel"></div>
   <script src="obtenerFarmacias.js"></script>
 
+  <!-- Scripts para Formularios -->
   <script>
-    function mostrarFormularioRegistro() {
-      document.getElementById("formulario-registro").style.display = "block";
-    }
-    function cerrarFormularioRegistro() {
-      document.getElementById("formulario-registro").style.display = "none";
-    }
-    function mostrarFormularioLogin() {
-      document.getElementById("formulario-login").style.display = "block";
-    }
-    function cerrarFormularioLogin() {
-      document.getElementById("formulario-login").style.display = "none";
-    }
-  </script>
+   function mostrarFormularioRegistro() {
+    document.getElementById("formulario-registro").style.display = "flex"; /* Cambiar a flex para centrar verticalmente */
+    document.getElementById("formulario-login").style.display = "none";
+  }
+
+  function cerrarFormularioRegistro() {
+    document.getElementById("formulario-registro").style.display = "none";
+  }
+
+  function mostrarFormularioLogin() {
+    document.getElementById("formulario-login").style.display = "flex"; /* Cambiar a flex para centrar verticalmente */
+    document.getElementById("formulario-registro").style.display = "none";
+  }
+
+  function cerrarFormularioLogin() {
+    document.getElementById("formulario-login").style.display = "none";
+  }
+
+function validarRegistro() {
+  var nombre = document.getElementById("nombre").value;
+  var email = document.getElementById("email").value;
+  var telefono = document.getElementById("telefono").value;
+  var contraseña = document.getElementById("contraseña").value;
+  var confirmar_contraseña = document.getElementById("confirmar_contraseña").value;
+
+  // Verificar que todos los campos estén llenos
+  if (nombre === "" || email === "" || telefono === "" || contraseña === "" || confirmar_contraseña === "") {
+    alert("Por favor, llene todos los campos.");
+    return false;
+  }
+
+  // Validar que el teléfono solo contenga números y tenga una longitud mínima de 10 dígitos
+  var telefonoRegex = /^[0-9]{10,}$/;
+  if (!telefonoRegex.test(telefono)) {
+    alert("El teléfono debe contener solo números y tener al menos 10 dígitos.");
+    return false;
+  }
+
+  // Validar que las contraseñas tengan una longitud mínima de 8 caracteres y contengan al menos un número
+  var contraseñaRegex = /^(?=.*[0-9]).{8,}$/;
+  if (!contraseñaRegex.test(contraseña)) {
+    alert("La contraseña debe tener al menos 8 caracteres y contener al menos un número.");
+    return false;
+  }
+
+  // Validar que las contraseñas coincidan
+  if (contraseña !== confirmar_contraseña) {
+    alert("Las contraseñas no coinciden.");
+    return false;
+  }
+
+  // Validar que el nombre solo contenga letras y espacios
+  var nombreRegex = /^[A-Za-z\s]+$/;
+  if (!nombreRegex.test(nombre)) {
+    alert("El nombre solo debe contener letras y espacios.");
+    return false;
+  }
+
+  // Si todas las validaciones pasan, se mostrará el mensaje de "Usuario registrado"
+  alert("Usuario registrado");
+  cerrarFormularioRegistro(); // Cerrar el formulario de registro
+  return true;
+}
+
+function validarLogin() {
+  var correo = document.getElementById("correo").value;
+  var contraseña_login = document.getElementById("contraseña_login").value;
+
+  // Verificar que ambos campos estén llenos
+  if (correo === "" || contraseña_login === "") {
+    alert("Por favor, llene todos los campos.");
+    return false;
+  }
+
+  // Validar que el correo tenga un formato válido
+  var correoRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!correoRegex.test(correo)) {
+    alert("Por favor, ingrese un correo válido.");
+    return false;
+  }
+
+  // Validar que la contraseña en el formulario de inicio de sesión tenga una longitud mínima de 8 caracteres
+  if (contraseña_login.length < 8) {
+    alert("La contraseña debe tener al menos 8 caracteres.");
+    return false;
+  }
+
+  // Si todas las validaciones pasan, se mostrará el mensaje de "Acceso concedido"
+  alert("Acceso concedido");
+  cerrarFormularioLogin(); // Cerrar el formulario de login
+  return true;
+}
+
+
+</script>
+
+
+
+<div id="openModal" class="modalDialog">
+  <div>
+    <a href="#close" title="Close" class="close">X</a>
+    <h2>Nos ubicamos</h2>
+    <p>Calle siempre viva.</p>
+    <p>oficina 777 providencia, santiago Chile.</p>
+  </div>
+</div>
+<div class="a1">
+  <a href="#openModal" type="button" class="btn btn-primary">contacto</a>
+</div>
+
+
+
+<!-- Elemento para mostrar la fecha y hora -->
+<div id="currentDateTime"></div>
+
+<!-- Script para actualizar la fecha y hora -->
+<script>
+  function getCurrentDateTime() {
+    const now = new Date();
+    const options = {
+      year: 'numeric', month: 'numeric', day: 'numeric',
+      hour: 'numeric', minute: 'numeric', second: 'numeric',
+      hour12: false // Formato de 24 horas
+    };
+    return now.toLocaleString('es-ES', options);
+  }
+
+  function updateDateTime() {
+    const currentDateTime = getCurrentDateTime();
+    document.getElementById('currentDateTime').innerText = 'Fecha y hora actual: ' + currentDateTime;
+  }
+
+  // Actualizar la fecha y hora cada segundo
+  setInterval(updateDateTime, 1000);
+
+  // Actualizar la fecha y hora al cargar la página
+  updateDateTime();
+</script>
+
+<footer>
+  <hr>
+  <p style="text-align: center;">© 2024 Todos los derechos reservados.</p>
+</footer>
+
+
 </body>
 
 </html>
