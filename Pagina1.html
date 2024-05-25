@@ -8,17 +8,20 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <link rel="stylesheet" href="pagina1.css">
   <title>BAJONEA</title>
   
 </head>
 
 <body>
+  
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">BAJONEA</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
@@ -48,52 +51,56 @@
   </nav>
 
    <!-- Formularios de Registro y Login -->
-   <div id="formulario-registro" style="display: none;">
-    <h2>Registrarse</h2>
-    <form action="procesar_formulario.php" method="post" onsubmit="return validarRegistro()">
-      <div class="mb-3">
-        <label for="nombre" class="form-label">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" class="form-control" required>
-      </div>
-      <div class="mb-3">
-        <label for="email" class="form-label">Correo:</label>
-        <input type="email" id="email" name="email" class="form-control" required>
-      </div>
-      <div class="mb-3">
-        <label for="telefono" class="form-label">Teléfono:</label>
-        <input type="text" id="telefono" name="telefono" class="form-control" required>
-      </div>
-      <div class="mb-3">
-        <label for="contraseña" class="form-label">Contraseña:</label>
-        <input type="password" id="contraseña" name="contraseña" class="form-control" required>
-      </div>
-      <div class="mb-3">
-        <label for="confirmar_contraseña" class="form-label">Confirmar Contraseña:</label>
-        <input type="password" id="confirmar_contraseña" name="confirmar_contraseña" class="form-control" required>
-      </div>
-      <input type="submit" value="Enviar" class="btn btn-primary">
-      <button type="button" class="btn btn-secondary" onclick="cerrarFormularioRegistro()">Cerrar</button>
-    </form>
-  </div>
+   <div class="container">
 
-  <div id="formulario-login" style="display: none;">
-    <h2>Iniciar Sesión</h2>
-    <form action="procesar_login.php" method="post" onsubmit="return validarLogin()">
-      <div class="mb-3">
-        <label for="correo" class="form-label">Correo:</label>
-        <input type="email" id="correo" name="correo" class="form-control" required>
-      </div>
-      <div class="mb-3">
-        <label for="contraseña_login" class="form-label">Contraseña:</label>
-        <input type="password" id="contraseña_login" name="contraseña_login" class="form-control" required>
-      </div>
-      <input type="submit" value="Iniciar Sesión" class="btn btn-primary">
-      <button type="button" class="btn btn-secondary" onclick="cerrarFormularioLogin()">Cerrar</button>
-    </form>
+  
+    <!-- Formularios de Registro y Login -->
+    <div id="formulario-registro" style="display: none;">
+      <h2>Registrarse</h2>
+      <form action="procesar_formulario.php" method="post" onsubmit="return validarRegistro()">
+        <div class="mb-3">
+          <label for="nombre" class="form-label">Nombre:</label>
+          <input type="text" id="nombre" name="nombre" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Correo:</label>
+          <input type="email" id="email" name="email" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="telefono" class="form-label">Teléfono:</label>
+          <input type="text" id="telefono" name="telefono" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="contraseña" class="form-label">Contraseña:</label>
+          <input type="password" id="contraseña" name="contraseña" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="confirmar_contraseña" class="form-label">Confirmar Contraseña:</label>
+          <input type="password" id="confirmar_contraseña" name="confirmar_contraseña" class="form-control" required>
+        </div>
+        <input type="submit" value="Enviar" class="btn btn-primary">
+        <button type="button" class="btn btn-secondary" onclick="cerrarFormularioRegistro()">Cerrar</button>
+      </form>
+    </div>
+  
+    <div id="formulario-login" style="display: none;">
+      <h2>Iniciar Sesión</h2>
+      <form action="procesar_login.php" method="post" onsubmit="return validarLogin()">
+        <div class="mb-3">
+          <label for="correo" class="form-label">Correo:</label>
+          <input type="email" id="correo" name="correo" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="contraseña_login" class="form-label">Contraseña:</label>
+          <input type="password" id="contraseña_login" name="contraseña_login" class="form-control" required>
+        </div>
+        <input type="submit" value="Iniciar Sesión" class="btn btn-primary">
+        <button type="button" class="btn btn-secondary" onclick="cerrarFormularioLogin()">Cerrar</button>
+      </form>
+    </div>
   </div>
-</div>
   <!-- Carrusel -->
-  <div id="carouselExampleCaptions" class="carousel slide">
+  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -148,88 +155,116 @@
     </button>
   </div>
 
+
+  <script>
+  // Activar el deslizamiento automático cada 3 segundos
+  document.addEventListener('DOMContentLoaded', function () {
+    var myCarousel = document.querySelector('#carouselExampleCaptions');
+    var carousel = new bootstrap.Carousel(myCarousel, {
+      interval: 3000, // Intervalo de cambio en milisegundos (3segundos)
+    });
+    });
+    </script>
+
   <!-- Tarjetas de Productos -->
   <div class="row row-cols-1 row-cols-md-3 g-4">
     <div class="col">
-      <div class="card">
+      <div class="card border-primary">
         <img src="imag/verdura.jpg" class="card-img-top" alt="Verduras" width="150" height="150">
         <div class="card-body">
-          <h5 class="card-title">Verduras</h5>
+          <h5 class="card-title text-primary">Verduras</h5>
           <p class="card-text">Descubre la frescura y calidad de nuestras verduras en oferta. Lleva a tu mesa lo mejor de la naturaleza y disfruta de una alimentación saludable y deliciosa con precios que no te puedes perder.</p>
           <a href="Pagina2.html" type="button" class="btn btn-primary">Ir a ver</a>
         </div>
       </div>
     </div>
     <div class="col">
-      <div class="card">
+      <div class="card border-success">
         <img src="imag/Frutas.jpg" class="card-img-top" alt="Frutas" width="150" height="150">
         <div class="card-body">
-          <h5 class="card-title">Frutas</h5>
+          <h5 class="card-title text-success">Frutas</h5>
           <p class="card-text">Explora una explosión de sabores y colores en nuestra sección de frutas. Desde jugosas manzanas hasta exóticas frutas tropicales, encuentra las mejores ofertas y lleva a casa la frescura y el sabor en cada bocado.</p>
-          <a href="Pagina3.html" type="button" class="btn btn-primary">Ir a ver</a>
+          <a href="Pagina3.html" type="button" class="btn btn-success">Ir a ver</a>
         </div>
       </div>
     </div>
     <div class="col">
-      <div class="card">
+      <div class="card border-danger">
         <img src="imag/Carnes.jpg" class="card-img-top" alt="Carnes" width="150" height="150">
         <div class="card-body">
-          <h5 class="card-title">Carnes</h5>
+          <h5 class="card-title text-danger">Carnes</h5>
           <p class="card-text">Encuentra las ofertas más tentadoras en una variedad de carnes frescas y preparadas para satisfacer todos tus antojos culinarios y elevar tus comidas a otro nivel.</p>
-          <a href="Pagina4.html" type="button" class="btn btn-primary">Ir a ver</a>
+          <a href="Pagina4.html" type="button" class="btn btn-danger">Ir a ver</a>
         </div>
       </div>
     </div>
     <div class="col">
-      <div class="card">
+      <div class="card border-warning">
         <img src="imag/Lacteos.jpg" class="card-img-top" alt="Lacteos" width="150" height="150">
         <div class="card-body">
-          <h5 class="card-title">Lácteos</h5>
+          <h5 class="card-title text-warning">Lácteos</h5>
           <p class="card-text">Explora nuestra selección de lácteos frescos y deliciosos, desde cremosa leche hasta quesos artesanales. Encuentra los mejores precios en una variedad de productos lácteos que te ayudarán a crear platos deliciosos y nutritivos para toda la familia.</p>
-          <a href="Pagina5.html" type="button" class="btn btn-primary">Ir a ver</a>
+          <a href="Pagina5.html" type="button" class="btn btn-warning">Ir a ver</a>
         </div>
       </div>
     </div>
   </div>
-  <!-- Modal de Contacto -->
+
+
   <div id="openModal" class="modalDialog">
     <div>
       <a href="#close" title="Close" class="close">X</a>
       <h2>Nos ubicamos</h2>
       <p>Calle siempre viva.</p>
-      <p>Oficina 777, Providencia, Santiago, Chile.</p>
+      <p>oficina 777 providencia, santiago Chile.</p>
     </div>
   </div>
-  <footer>
+  
+  <footer class="footer">
     <hr>
-    <p style="text-align: center;">© 2024 Todos los derechos reservados.</p>
+    <p class="text-center">&copy; 2024 Todos los derechos reservados.</p>
   </footer>
-  <div class="text-center">
-    <a href="#openModal" type="button" class="btn btn-primary">Contacto</a>
+
+  <div class="a1">
+    <a href="#openModal" type="button" class="btn btn-primary">contacto</a>
   </div>
 
+  <p id="bajonea"> siempre te cuidamos, por eso: <br>
+    te mostramos las farmacias de turno de todo Chile 
+
+    <script>
+      $(document).ready(function() {
+        // Función para animar el párrafo al hacer clic en él
+        $('#bajonea').click(function() {
+          $(this).animate({ fontSize: '24px', opacity: '0.5' }, 'slow');
+        });
+      });
+    </script>
+  
+
   <!-- Sección de Farmacias -->
-  <h1>FARMACIAS</h1>
   <div class="farmacias-carousel" id="farmaciasCarousel"></div>
   <script src="obtenerFarmacias.js"></script>
 
   <!-- Scripts para Formularios -->
   <script>
    function mostrarFormularioRegistro() {
-  document.getElementById("formulario-registro").style.display = "block";
-}
+    document.getElementById("formulario-registro").style.display = "flex"; /* Cambiar a flex para centrar verticalmente */
+    document.getElementById("formulario-login").style.display = "none";
+  }
 
-function cerrarFormularioRegistro() {
-  document.getElementById("formulario-registro").style.display = "none";
-}
+  function cerrarFormularioRegistro() {
+    document.getElementById("formulario-registro").style.display = "none";
+  }
 
-function mostrarFormularioLogin() {
-  document.getElementById("formulario-login").style.display = "block";
-}
+  function mostrarFormularioLogin() {
+    document.getElementById("formulario-login").style.display = "flex"; /* Cambiar a flex para centrar verticalmente */
+    document.getElementById("formulario-registro").style.display = "none";
+  }
 
-function cerrarFormularioLogin() {
-  document.getElementById("formulario-login").style.display = "none";
-}
+  function cerrarFormularioLogin() {
+    document.getElementById("formulario-login").style.display = "none";
+  }
 
 function validarRegistro() {
   var nombre = document.getElementById("nombre").value;
@@ -273,6 +308,7 @@ function validarRegistro() {
 
   // Si todas las validaciones pasan, se mostrará el mensaje de "Usuario registrado"
   alert("Usuario registrado");
+  cerrarFormularioRegistro(); // Cerrar el formulario de registro
   return true;
 }
 
@@ -301,8 +337,10 @@ function validarLogin() {
 
   // Si todas las validaciones pasan, se mostrará el mensaje de "Acceso concedido"
   alert("Acceso concedido");
+  cerrarFormularioLogin(); // Cerrar el formulario de login
   return true;
 }
+
 
 </script>
 

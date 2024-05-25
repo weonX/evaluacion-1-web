@@ -38,3 +38,11 @@ function mostrarFarmacias(farmacias) {
 }
 
 window.onload = obtenerFarmacias;
+
+
+$(document).ready(function() {
+  // Función para animar el elemento al hacer clic en él
+  $('#elemento').click(function() {
+    $(this).animate({ fontSize: '24px', opacity: '0.5' }, 'slow');
+  });
+});
