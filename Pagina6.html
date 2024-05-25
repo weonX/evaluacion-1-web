@@ -3,16 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Bienvenido</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0; /* Color de fondo */
+            overflow: hidden; /* Oculta las letras que se mueven fuera de la pantalla */
+        }
+        
+        .container {
+            position: relative;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 6em; /* Tamaño de letra grande */
+            color: #ff4500; /* Color naranja llamativo */
+            position: absolute; /* Permite mover el texto */
+            animation: moveText 5s infinite linear alternate; /* Animación de movimiento */
+        }
+        
+        @keyframes moveText {
+            0% { left: 0; }
+            100% { left: calc(100% - 100vw); }
+        }
+        
+        .happy-face {
+            font-size: 3em;
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    </style>
 </head>
 <body>
-    
+    <div class="container">
+        <h1>Bienvenido</h1>
+        <div class="happy-face">😊</div>
+    </div>
+
+    <script>
+        // Obtener el elemento del título
+        const title = document.querySelector('h1');
+
+        // Función para mover el texto automáticamente
+        function moveText() {
+            let position = -title.offsetWidth; // Inicia desde la izquierda fuera de la pantalla
+            setInterval(() => {
+                position += 1; // Mueve el texto hacia la derecha
+                title.style.left = position + 'px'; // Aplica la nueva posición
+                if (position >= window.innerWidth) {
+                    position = -title.offsetWidth; // Reinicia la posición cuando el texto sale completamente de la pantalla
+                }
+            }, 10); // Intervalo de tiempo en milisegundos
+        }
+
+        // Llama a la función para iniciar el movimiento del texto
+        moveText();
+    </script>
 </body>
 </html>
-
-function mostrarFormularioLogin() {
-    document.getElementById("formulario-login").style.display = "block";
-  }
-  function cerrarFormularioLogin() {
-    document.getElementById("formulario-login").style.display = "none";
-  }

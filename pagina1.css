@@ -230,3 +230,15 @@ p {
 .carousel-caption p {
   color: rgba(7, 90, 105, 0.577); /* Cambiar a tu color deseado */
 }
+
+
+/* configuracion del parpadeo*/
+.blinking {
+  animation: blink-animation 1s steps(2, start) infinite;
+}
+
+@keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}

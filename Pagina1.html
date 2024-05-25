@@ -19,7 +19,8 @@
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">BAJONEA</a>
+      <!-- Agrega una clase "blink" al navbar-brand -->
+      <a class="navbar-brand blink" href="#">BAJONEA</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -50,6 +51,15 @@
     </div>
   </nav>
 
+  <script>
+    // Agrega una clase de parpadeo al navbar-brand
+    $(document).ready(function() {
+      setInterval(function() {
+        $('.blink').toggleClass('blinking');
+      }, 1000); // Cambia el intervalo de tiempo si deseas un parpadeo más rápido o lento
+    });
+    </script>
+
    <!-- Formularios de Registro y Login -->
    <div class="container">
 
@@ -57,7 +67,7 @@
     <!-- Formularios de Registro y Login -->
     <div id="formulario-registro" style="display: none;">
       <h2>Registrarse</h2>
-      <form action="procesar_formulario.php" method="post" onsubmit="return validarRegistro()">
+      <form action="Pagina6.html" method="post" onsubmit="return validarRegistro()">
         <div class="mb-3">
           <label for="nombre" class="form-label">Nombre:</label>
           <input type="text" id="nombre" name="nombre" class="form-control" required>
@@ -85,7 +95,7 @@
   
     <div id="formulario-login" style="display: none;">
       <h2>Iniciar Sesión</h2>
-      <form action="procesar_login.php" method="post" onsubmit="return validarLogin()">
+      <form action="Pagina6.html" method="post" onsubmit="return validarLogin()">
         <div class="mb-3">
           <label for="correo" class="form-label">Correo:</label>
           <input type="email" id="correo" name="correo" class="form-control" required>
@@ -342,6 +352,33 @@ function validarLogin() {
 }
 
 
+</script>
+
+<!-- Elemento para mostrar la fecha y hora -->
+<div id="currentDateTime"></div>
+
+<!-- Script para actualizar la fecha y hora -->
+<script>
+  function getCurrentDateTime() {
+    const now = new Date();
+    const options = {
+      year: 'numeric', month: 'numeric', day: 'numeric',
+      hour: 'numeric', minute: 'numeric', second: 'numeric',
+      hour12: false // Formato de 24 horas
+    };
+    return now.toLocaleString('es-ES', options);
+  }
+
+  function updateDateTime() {
+    const currentDateTime = getCurrentDateTime();
+    document.getElementById('currentDateTime').innerText = 'Fecha y hora actual: ' + currentDateTime;
+  }
+
+  // Actualizar la fecha y hora cada segundo
+  setInterval(updateDateTime, 1000);
+
+  // Actualizar la fecha y hora al cargar la página
+  updateDateTime();
 </script>
 
 
